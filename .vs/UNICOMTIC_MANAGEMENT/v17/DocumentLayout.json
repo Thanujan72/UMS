@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|z:\\c#\\unicomtic_management\\unicomtic_management\\view\\subjectform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\view\\subjectform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|z:\\c#\\unicomtic_management\\unicomtic_management\\model\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\model\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|z:\\c#\\unicomtic_management\\unicomtic_management\\view\\subjectform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\view\\subjectform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|z:\\c#\\unicomtic_management\\unicomtic_management\\view\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\view\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|z:\\c#\\unicomtic_management\\unicomtic_management\\controller\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\controller\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|Z:\\C#\\UNICOMTIC_MANAGEMENT\\unicomtic_management\\controller\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\controller\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|Z:\\C#\\UNICOMTIC_MANAGEMENT\\unicomtic_management\\repositories\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D170659E-274D-4283-A747-B703FDFC9B24}|UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT.csproj|solutionrelative:unicomtic_management\\repositories\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DatabaseManager.cs",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Repositories\\DatabaseManager.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\Repositories\\DatabaseManager.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Repositories\\DatabaseManager.cs",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\Repositories\\DatabaseManager.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAiwCAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T12:28:46.94Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Model\\Subject.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\Model\\Subject.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Model\\Subject.cs",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\Model\\Subject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T13:03:23.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SubjectForm.cs",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAcwBsAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T13:02:47.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SubjectForm.cs [Design]",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs [Design]",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\View\\SubjectForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T12:59:22.274Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SubjectController.cs",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Controller\\SubjectController.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\Controller\\SubjectController.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Controller\\SubjectController.cs",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\Controller\\SubjectController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T12:59:03.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StudentForm.cs",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\View\\StudentForm.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\View\\StudentForm.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\View\\StudentForm.cs",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\View\\StudentForm.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAswDYAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T08:08:52.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Controller\\StudentController.cs",
+              "RelativeDocumentMoniker": "UNICOMTIC_MANAGEMENT\\Controller\\StudentController.cs",
+              "ToolTip": "Z:\\C#\\UNICOMTIC_MANAGEMENT\\UNICOMTIC_MANAGEMENT\\Controller\\StudentController.cs",
+              "RelativeToolTip": "UNICOMTIC_MANAGEMENT\\Controller\\StudentController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAUwBkAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T04:53:43.617Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
