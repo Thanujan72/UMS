@@ -22,6 +22,7 @@ namespace UNICOMTIC_MANAGEMENT.View
            
                 if(adminusername.Text == "Admin" && adminpassword.Text == "Admin@123")
                 {
+                       
                     MessageBox.Show("SuccessFully Logged in");
 
                     this.Hide();
@@ -31,7 +32,7 @@ namespace UNICOMTIC_MANAGEMENT.View
 
                 else
                 {
-                    MessageBox.Show("Ivalid UserName orb Password");
+                    MessageBox.Show("Ivalid UserName or Password");
                 }
 
 
@@ -53,7 +54,39 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void Adminlogin_Load(object sender, EventArgs e)
         {
+            adminpassword.PasswordChar = '.';
+        }
 
+        private void showpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showpassword.Checked)
+            {
+                adminpassword.PasswordChar = '\0'; // shows the actual text
+            }
+            else
+            {
+                adminpassword.PasswordChar = '*';  // hides it
+            }
+        }
+
+        private void adminpassword_Enter(object sender, EventArgs e)
+        {
+            if (adminpassword.Text == "Enter the Password")
+            {
+                adminpassword.Text = "";
+                adminpassword.ForeColor = Color.Black;
+                adminpassword.PasswordChar = '*';
+            }
+        }
+
+        private void adminpassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(adminpassword.Text))
+            {
+                adminpassword.Text = "Enter the Password";
+                adminpassword.ForeColor = Color.Gray;
+                adminpassword.PasswordChar = '\0'; //
+            }
         }
     }
 }

@@ -78,7 +78,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                             var subject = new Subject
                             {
                                 SubjectID = reader.GetInt32(0),
-                                Subjectname = reader.GetString(1),
+                                SubjectName = reader.GetString(1),
                             };
                             subjects.Add(subject);
                         }

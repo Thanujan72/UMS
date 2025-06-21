@@ -14,7 +14,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                
                 using (var command = new SQLiteCommand("INSERT INTO Subjects(SubjectName,CourseID) VALUES (@Subjectname,@CourseID)", conn))
                 {
-                    command.Parameters.AddWithValue("@Subjectname", subject.Subjectname);
+                    command.Parameters.AddWithValue("@Subjectname", subject.SubjectName);
                     command.Parameters.AddWithValue("@CourseID", subject.CourseID);
                     command.ExecuteNonQuery();
                 }
@@ -59,7 +59,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                         var subject = new Subject
                         {
                             SubjectID = reader.GetInt32(0),
-                            Subjectname = reader.GetString(1),
+                            SubjectName = reader.GetString(1),
                             CourseID = reader.GetInt32(2),
                             CourseName = reader.GetString(3) // if needed
                         };
@@ -77,7 +77,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                 
                 using (var cmd = new SQLiteCommand("UPDATE Subjects SET SubjectName = @SubjectName, CourseID = @CourseID WHERE SubjectID = @SubjectID", conn))
                 {
-                    cmd.Parameters.AddWithValue("@SubjectName", subject.Subjectname);
+                    cmd.Parameters.AddWithValue("@SubjectName", subject.SubjectName);
                     cmd.Parameters.AddWithValue("@CourseID", subject.CourseID);
                     cmd.Parameters.AddWithValue("@SubjectID", subject.SubjectID);
                     cmd.ExecuteNonQuery();

@@ -34,6 +34,7 @@
             this.adminusername = new System.Windows.Forms.TextBox();
             this.adminpassword = new System.Windows.Forms.TextBox();
             this.btnadminlogin = new System.Windows.Forms.Button();
+            this.showpassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -78,6 +79,8 @@
             this.adminpassword.Size = new System.Drawing.Size(162, 20);
             this.adminpassword.TabIndex = 8;
             this.adminpassword.TextChanged += new System.EventHandler(this.adminpassword_TextChanged);
+            this.adminpassword.Enter += new System.EventHandler(this.adminpassword_Enter);
+            this.adminpassword.Leave += new System.EventHandler(this.adminpassword_Leave);
             // 
             // btnadminlogin
             // 
@@ -89,11 +92,23 @@
             this.btnadminlogin.UseVisualStyleBackColor = true;
             this.btnadminlogin.Click += new System.EventHandler(this.btnadminlogin_Click);
             // 
+            // showpassword
+            // 
+            this.showpassword.AutoSize = true;
+            this.showpassword.Location = new System.Drawing.Point(480, 155);
+            this.showpassword.Name = "showpassword";
+            this.showpassword.Size = new System.Drawing.Size(102, 17);
+            this.showpassword.TabIndex = 10;
+            this.showpassword.Text = "Show Password";
+            this.showpassword.UseVisualStyleBackColor = true;
+            this.showpassword.CheckedChanged += new System.EventHandler(this.showpassword_CheckedChanged);
+            // 
             // Adminlogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.showpassword);
             this.Controls.Add(this.btnadminlogin);
             this.Controls.Add(this.adminpassword);
             this.Controls.Add(this.adminusername);
@@ -116,5 +131,6 @@
         private System.Windows.Forms.TextBox adminusername;
         private System.Windows.Forms.TextBox adminpassword;
         private System.Windows.Forms.Button btnadminlogin;
+        private System.Windows.Forms.CheckBox showpassword;
     }
 }

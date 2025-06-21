@@ -11,7 +11,7 @@ namespace UNICOMTIC_MANAGEMENT.Model
         
 
         public int SubjectID {  get; set; } 
-        public string Subjectname {  get; set; }
+        public string SubjectName {  get; set; }
        public int CourseID {  get; set; }   
         public string CourseName { get; set; } 
     }

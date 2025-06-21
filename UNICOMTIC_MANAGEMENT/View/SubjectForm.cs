@@ -44,7 +44,7 @@ namespace UNICOMTIC_MANAGEMENT.View
             Subject subject = new Subject
             {
                 CourseID = courseId,
-                Subjectname = SubjectTxt.Text
+                SubjectName = SubjectTxt.Text
 
             };
 
@@ -73,7 +73,7 @@ namespace UNICOMTIC_MANAGEMENT.View
                 Subject subject = new Subject
                 {
                     SubjectID = SubjectID,
-                    Subjectname = SubjectTxt.Text,
+                    SubjectName = SubjectTxt.Text,
                     CourseID = courseId,
 
 
@@ -95,7 +95,7 @@ namespace UNICOMTIC_MANAGEMENT.View
                 Subject subject = new Subject
                 {
                     SubjectID = SubjectID,
-                    Subjectname = SubjectTxt.Text,
+                    SubjectName = SubjectTxt.Text,
                      CourseID = courseId,
 
 

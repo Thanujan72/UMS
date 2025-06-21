@@ -33,7 +33,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
             var exams = new List<Exam>();  
             using(var conn = DbConfig.GetConnection())
             {
-                var command = new SQLiteCommand(@"SELECT e.ExamID,e.ExamName,e.ExamDate,e.RoomID, r.RoomName, e.SubjectID 
+                var command = new SQLiteCommand(@"SELECT e.ExamID,e.ExamName,e.ExamDate,e.RoomID,r.RoomName, e.SubjectID 
                                                   FROM  Exams e
                                                   LEFT JOIN Rooms r ON e.RoomID = r.RoomID
                                                   LEFT JOIN Subjects s ON e.SubjectID = s.SubjectID", conn);
@@ -48,7 +48,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                             ExamDate = DateTime.Parse(reader.GetString(2)), 
                             RoomID = reader.GetInt32(3),
                             RoomName = reader.GetString(4),
-                            //SubjectId = reader.GetInt32(5),
+                            SubjectID = reader.GetInt32(5),
                            
 
                         };
@@ -63,51 +63,53 @@ namespace UNICOMTIC_MANAGEMENT.Controller
         public List<Subject> GetSubjectList()
         {
             var subjects = new List<Subject>();
-            using( var conn = DbConfig.GetConnection())
+            using (var conn = DbConfig.GetConnection())
             {
-                var command = new SQLiteCommand("SELECT SubjectID,SubjectName FROM Subjects", conn);
+               
+                var command = new SQLiteCommand("SELECT SubjectID, SubjectName FROM Subjects", conn);
+                var reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
+                    Subject subject = new Subject
                     {
-                        Subject subject = new Subject
-                        {
-                            SubjectID = reader.GetInt32(0),
-                            Subjectname = reader.GetString(1)
-                        };
-                        subjects.Add(subject);
-                    }
+                        SubjectID = reader.GetInt32(0),
+                        SubjectName = reader.GetString(1)  // Property name match பண்ணுங்க
+                    };
+                    subjects.Add(subject);
                 }
-            }return subjects;
+            }
+            return subjects;
         }
+
         public List<Room> GetRoomList()
         {
             var rooms = new List<Room>();
-            using ( var conn = DbConfig.GetConnection())
+            using (var conn = DbConfig.GetConnection())
             {
-                var cmd = new SQLiteCommand("SELECT* FROM Rooms", conn);
+                
+                var cmd = new SQLiteCommand("SELECT * FROM Rooms", conn);
                 var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    while (reader.Read())
+                    Room room = new Room
                     {
-                        Room room = new Room
-                        {
-                            RoomID = reader.GetInt32(0),
-                            RoomName = reader.GetString(1),
-                            RoomType = reader.GetString(2),
-
-                        }; rooms.Add(room);
-                    }
+                        RoomID = reader.GetInt32(0),
+                        RoomName = reader.GetString(1),
+                        RoomType = reader.GetString(2)
+                    };
+                    rooms.Add(room);
                 }
             }
             return rooms;
         }
-        
-        
+
+    
 
 
-        // Update Exam
-        public void UpdateExam(Exam exam)
+
+
+    // Update Exam
+    public void UpdateExam(Exam exam)
         {
             using (var conn = DbConfig.GetConnection())
             {
@@ -123,17 +125,17 @@ namespace UNICOMTIC_MANAGEMENT.Controller
             }
         }
 
-        /*// Delete Exam
+        // Delete Exam
         public void DeleteExam(int examId)
         {
             using (var conn = DbConfig.GetConnection())
             {
-               var command = new SQLiteCommand("DELETE FROM Exams WHERE ExamID = @Id", conn);
+                var command = new SQLiteCommand("DELETE FROM Exams WHERE ExamID = @Id", conn);
                 command.Parameters.AddWithValue("@Id", examId);
 
                 command.ExecuteNonQuery();
             }
-        }*/
+        }
     }
 
 }

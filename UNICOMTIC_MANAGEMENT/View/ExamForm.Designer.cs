@@ -87,6 +87,7 @@
             this.examdelete.TabIndex = 9;
             this.examdelete.Text = "DELETE";
             this.examdelete.UseVisualStyleBackColor = true;
+            this.examdelete.Click += new System.EventHandler(this.examdelete_Click);
             // 
             // ExamGridView
             // 

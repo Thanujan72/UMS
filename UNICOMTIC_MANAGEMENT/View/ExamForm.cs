@@ -64,11 +64,15 @@ namespace UNICOMTIC_MANAGEMENT.View
             contoller.AddExam(exam);
             MessageBox.Show("Exam Added Success");
             LoadExam();
+            subjectname.SelectedValue = "";
+            room.SelectedValue = "";
+            ExamDatetime.Text = "";
 
         }
 
         private void ExamForm_Load(object sender, EventArgs e)
         {
+           
             subjectname.DataSource = contoller.GetSubjectList();
             subjectname.DisplayMember = "SubjectName";
             subjectname.ValueMember = "SubjectID";
@@ -76,6 +80,7 @@ namespace UNICOMTIC_MANAGEMENT.View
             room.DataSource = contoller.GetRoomList();
             room.DisplayMember = "RoomType";
             room.ValueMember = "RoomID";
+
         }
 
         private void ExamGridView_SelectionChanged(object sender, EventArgs e)
@@ -84,8 +89,8 @@ namespace UNICOMTIC_MANAGEMENT.View
             {
                 if (ExamGridView.SelectedRows.Count > 0)
                 {
-                    subjectname.SelectedValue = ExamGridView.SelectedRows[0].Cells["SubjectID"].Value.ToString();
-                    room.SelectedValue = ExamGridView.SelectedRows[0].Cells["RoomID"].Value.ToString();
+                    subjectname.SelectedValue = ExamGridView.SelectedRows[0].Cells["SubjectID"].Value;
+                    room.SelectedValue = ExamGridView.SelectedRows[0].Cells["RoomID"].Value;
 
                     var examDateCell = ExamGridView.SelectedRows[0].Cells["ExamDate"].Value;
 
@@ -147,10 +152,47 @@ namespace UNICOMTIC_MANAGEMENT.View
 
                         contoller.UpdateExam(exam);
                         LoadExam();
-                         MessageBox.Show("Exam Updated Successfully");
-                }
-                
+                    MessageBox.Show("Do you want to update the exam?", "Confirm Update");
+                        subjectname.SelectedValue = "";
+                        room.SelectedValue = "";
+                        ExamDatetime.Text = "";
 
+                }
+
+
+            }
+        }
+
+        private void examdelete_Click(object sender, EventArgs e)
+        {
+            if (ExamGridView.SelectedRows.Count > 0)
+            {
+
+                if (ExamGridView.SelectedRows.Count > 0)
+                {
+                    int SubjectID = (int)subjectname.SelectedValue;
+                    int examId = Convert.ToInt32(ExamGridView.SelectedRows[0].Cells["ExamID"].Value);
+                    string examName = subjectname.Text;
+                    DateTime examDate = ExamDatetime.Value;
+                    int roomId = (int)room.SelectedValue;
+
+                    Exam exam = new Exam
+                    {
+                        ExamId = examId,
+                        ExamName = examName,
+                        ExamDate = examDate,
+                        RoomID = roomId,
+                        SubjectID = SubjectID
+                    };
+
+                    contoller.DeleteExam(examId);
+                    MessageBox.Show("Do you want to Delete the exam?");
+                    LoadExam();
+                    subjectname.SelectedValue = "";
+                    room.SelectedValue = "";
+                    ExamDatetime.Text = "";
+
+                }
             }
         }
     }
