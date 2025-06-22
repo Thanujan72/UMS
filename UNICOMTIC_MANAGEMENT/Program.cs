@@ -22,7 +22,7 @@ namespace UNICOMTIC_MANAGEMENT
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainFrom());
 
-            Application.Run(new ExamForm());
+            Application.Run(new StudentFrom());
         }
     }
 }

@@ -56,8 +56,8 @@ namespace UNICOMTIC_MANAGEMENT.View
             {
                 Name = stuname.Text,
                 Adderss = stuadderss.Text,
-                Username = stuusername.Text,
-                Password = stupassword.Text,
+                Username= username .Text,
+                Password= password .Text,
                 CourseID = courseId
             };
 
@@ -66,8 +66,8 @@ namespace UNICOMTIC_MANAGEMENT.View
             LoadStudents();
             stuname.Text = "";
             stuadderss.Text = "";
-            stuusername.Text = "";
-            stupassword.Text = "";
+            username.Text = "";
+            password.Text = "";
             courseid.Text = "";
         }
 
@@ -78,8 +78,8 @@ namespace UNICOMTIC_MANAGEMENT.View
 
                 stuname.Text = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
                 stuadderss.Text = dataGridView1.SelectedRows[0].Cells["Adderss"].Value.ToString();
-                stuusername.Text = dataGridView1.SelectedRows[0].Cells["UserName"].Value.ToString();
-                stupassword.Text = dataGridView1.SelectedRows[0].Cells["Password"].Value.ToString();
+                username .Text = dataGridView1.SelectedRows[0].Cells["UserName"].Value.ToString();
+                password.Text = dataGridView1.SelectedRows[0].Cells["Password"].Value.ToString();
                 courseid.Text = dataGridView1.SelectedRows[0].Cells["CourseName"].Value.ToString();
 
             }
@@ -111,8 +111,8 @@ namespace UNICOMTIC_MANAGEMENT.View
                         StudentID = StudentID,
                         Name = stuname.Text,
                         Adderss = stuadderss.Text,
-                        Username = stuusername.Text,
-                        Password = stupassword.Text,
+                        Username = username.Text,
+                        Password = password.Text,
                         
                     };
                     controller.UpdateStudent(student);
@@ -120,8 +120,8 @@ namespace UNICOMTIC_MANAGEMENT.View
                     LoadStudents();
                     stuname.Text = "";
                     stuadderss.Text = "";
-                    stuusername.Text = "";
-                    stupassword.Text = "";
+                    username.Text = "";
+                    password.Text = "";
                     courseid.Text = "";
                 }
             }
@@ -138,8 +138,7 @@ namespace UNICOMTIC_MANAGEMENT.View
                     StudentID = StudentID,
                    Name = stuname.Text,
                    Adderss = stuadderss.Text,
-                   Username = stuusername.Text,
-                   Password = stupassword.Text,
+                   
                 
                 };
                 controller.DeleteStudent(StudentID);
@@ -147,17 +146,19 @@ namespace UNICOMTIC_MANAGEMENT.View
                 LoadStudents();
                 stuname.Text = "";
                 stuadderss.Text = "";
-                stuusername.Text = "";
-                stupassword.Text = "";
+                
                 courseid.Text = "";
             }
         }
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminMenu adminMenu = new AdminMenu();
-            adminMenu.ShowDialog();
+           
+        }
+
+        private void stuusername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,11 +19,12 @@ namespace UNICOMTIC_MANAGEMENT.Controller
         {
             using (var conn = DbConfig.GetConnection())
             {
-                var command = new SQLiteCommand("INSERT INTO Students(Name,Address,UserName,Password,CourseID)VALUES (@name,@address,@userName,@password,@courseID)", conn);
+               
+                var command = new SQLiteCommand("INSERT INTO Students(Name,Address,Username,Password,CourseID)VALUES (@name,@address,@Username,@Password,@courseID)", conn);
                 command.Parameters.AddWithValue("@name", student.Name);
                 command.Parameters.AddWithValue("@address", student.Adderss);
-                command.Parameters.AddWithValue("@userName", student.Username);
-                command.Parameters.AddWithValue("@password", student.Password);
+                command.Parameters.AddWithValue("@Username", student.Username);
+                command.Parameters.AddWithValue("@Password", student.Password);
                 command.Parameters.AddWithValue("@courseID", student.CourseID);
                 command.ExecuteNonQuery();
             }
@@ -36,7 +37,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
             using (var conn = DbConfig.GetConnection())
             {
                 var cmd = new SQLiteCommand(@"
-                            SELECT s.StudentID, s.Name, s.Address, s.Username, s.Password, s.CourseID,c.CourseName
+                            SELECT s.StudentID, s.Name, s.Address, s.CourseID,c.CourseName
                             FROM Students s
                             LEFT JOIN Courses c ON s.CourseID = c.CourseID", conn);
 
@@ -52,8 +53,8 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                             StudentID = reader.GetInt32(0),
                             Name = reader.GetString(1),
                             Adderss = reader.GetString(2),
-                            Username = reader.GetString(3),
-                            Password = reader.GetString(4),
+                            Username = reader .GetString(3),
+                            Password = reader .GetString(4),
                             CourseID = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5),
                             CourseName = reader.IsDBNull(6) ? null : reader.GetString(6)
 

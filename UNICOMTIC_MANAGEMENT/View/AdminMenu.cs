@@ -29,31 +29,71 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm_Staff staff = new frm_Staff();
-            staff.ShowDialog();
-            
+            if (this.menupanal.Controls.Count > 0)
+            {
+                this.menupanal.Controls.RemoveAt(0);
+            }
+            menupanal.Controls.Clear();
+
+            frm_Staff staffForm = new frm_Staff();
+            staffForm.TopLevel = false;
+
+            staffForm.Dock = DockStyle.Fill;
+            staffForm.FormBorderStyle = FormBorderStyle.None;
+            menupanal.Controls.Add(staffForm);
+            staffForm.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            LecturerFrom lecturer = new LecturerFrom();
-            lecturer.ShowDialog();
+            if (this.menupanal.Controls.Count > 0)
+            {
+                this.menupanal.Controls.RemoveAt(0);
+            }
+            menupanal.Controls.Clear();
+
+            LecturerFrom lectuerForm = new LecturerFrom();
+            lectuerForm.TopLevel = false;
+
+            lectuerForm.Dock = DockStyle.Fill;
+            lectuerForm.FormBorderStyle = FormBorderStyle.None;
+            menupanal.Controls.Add(lectuerForm);
+            lectuerForm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            StudentFrom studentFrom = new StudentFrom();
-            studentFrom.ShowDialog();
+            if (this.menupanal.Controls.Count > 0)
+            {
+                this.menupanal.Controls.RemoveAt(0);
+            }
+            menupanal.Controls.Clear();
+
+            StudentFrom studentForm = new StudentFrom();
+            studentForm.TopLevel = false;
+
+            studentForm.Dock = DockStyle.Fill;
+            studentForm.FormBorderStyle = FormBorderStyle.None;
+            menupanal.Controls.Add(studentForm);
+            studentForm.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Courseform courseform = new Courseform();
-            courseform.ShowDialog();
+            if (this.menupanal.Controls.Count > 0)
+            {
+                this.menupanal.Controls.RemoveAt(0);
+            }
+            menupanal.Controls.Clear();
+
+            Courseform CourseForm = new Courseform();
+            CourseForm.TopLevel = false;
+
+            CourseForm.Dock = DockStyle.Fill;
+            CourseForm.FormBorderStyle = FormBorderStyle.None;
+            menupanal.Controls.Add(CourseForm);
+            CourseForm.Show();
 
         }
 

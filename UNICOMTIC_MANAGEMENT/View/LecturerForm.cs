@@ -118,9 +118,7 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminMenu adminMenu = new AdminMenu();
-            adminMenu.ShowDialog();
+            
         }
     }
 }

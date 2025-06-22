@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.stuupdate = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.stuupdate = new System.Windows.Forms.Button();
+            this.menupanal = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(163, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // stuupdate
+            // 
+            this.stuupdate.Location = new System.Drawing.Point(32, 263);
+            this.stuupdate.Name = "stuupdate";
+            this.stuupdate.Size = new System.Drawing.Size(75, 23);
+            this.stuupdate.TabIndex = 13;
+            this.stuupdate.Text = "Back";
+            this.stuupdate.UseVisualStyleBackColor = true;
+            this.stuupdate.Click += new System.EventHandler(this.stuupdate_Click);
             // 
             // button7
             // 
@@ -97,34 +107,24 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(163, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(637, 65);
+            this.panel2.Size = new System.Drawing.Size(637, 19);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
+            // menupanal
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(163, 65);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(637, 385);
-            this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // stuupdate
-            // 
-            this.stuupdate.Location = new System.Drawing.Point(32, 263);
-            this.stuupdate.Name = "stuupdate";
-            this.stuupdate.Size = new System.Drawing.Size(75, 23);
-            this.stuupdate.TabIndex = 13;
-            this.stuupdate.Text = "Back";
-            this.stuupdate.UseVisualStyleBackColor = true;
-            this.stuupdate.Click += new System.EventHandler(this.stuupdate_Click);
+            this.menupanal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menupanal.Location = new System.Drawing.Point(163, 19);
+            this.menupanal.Name = "menupanal";
+            this.menupanal.Size = new System.Drawing.Size(637, 431);
+            this.menupanal.TabIndex = 2;
+            this.menupanal.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.menupanal);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "AdminMenu";
@@ -142,7 +142,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel menupanal;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button stuupdate;
     }

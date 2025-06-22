@@ -17,8 +17,6 @@ namespace UNICOMTIC_MANAGEMENT.Repositories
                 cmd.CommandText = @"
                             CREATE TABLE IF NOT EXISTS Users (
                                 UserID INTEGER PRIMARY KEY AUTOINCREMENT,
-                                Username TEXT NOT NULL,
-                                Password TEXT NOT NULL,
                                 Role TEXT NOT NULL
                                 );
 
@@ -43,7 +41,8 @@ namespace UNICOMTIC_MANAGEMENT.Repositories
                                 Username TEXT NOT NULL,
                                 Password TEXT NOT NULL,
                                 CourseID INTEGER,
-                                FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+                                FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)                         
+                                
                             );
 
 

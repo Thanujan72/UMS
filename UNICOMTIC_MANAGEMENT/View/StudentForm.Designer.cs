@@ -30,13 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.stuname = new System.Windows.Forms.TextBox();
             this.stuadderss = new System.Windows.Forms.TextBox();
-            this.stuusername = new System.Windows.Forms.TextBox();
-            this.stupassword = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.stuadd = new System.Windows.Forms.Button();
             this.studelete = new System.Windows.Forms.Button();
@@ -44,6 +40,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.courseid = new System.Windows.Forms.ComboBox();
             this.back = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,24 +64,6 @@
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Address";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "UserName";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 203);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Password";
             // 
             // label5
             // 
@@ -107,22 +89,6 @@
             this.stuadderss.Size = new System.Drawing.Size(100, 20);
             this.stuadderss.TabIndex = 6;
             // 
-            // stuusername
-            // 
-            this.stuusername.Location = new System.Drawing.Point(143, 160);
-            this.stuusername.Name = "stuusername";
-            this.stuusername.Size = new System.Drawing.Size(100, 20);
-            this.stuusername.TabIndex = 7;
-            // 
-            // stupassword
-            // 
-            this.stupassword.Location = new System.Drawing.Point(143, 200);
-            this.stupassword.Name = "stupassword";
-            this.stupassword.PasswordChar = '.';
-            this.stupassword.Size = new System.Drawing.Size(100, 20);
-            this.stupassword.TabIndex = 8;
-            this.stupassword.UseSystemPasswordChar = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -134,7 +100,7 @@
             // 
             // stuadd
             // 
-            this.stuadd.Location = new System.Drawing.Point(216, 287);
+            this.stuadd.Location = new System.Drawing.Point(168, 309);
             this.stuadd.Name = "stuadd";
             this.stuadd.Size = new System.Drawing.Size(75, 23);
             this.stuadd.TabIndex = 10;
@@ -144,7 +110,7 @@
             // 
             // studelete
             // 
-            this.studelete.Location = new System.Drawing.Point(106, 287);
+            this.studelete.Location = new System.Drawing.Point(85, 309);
             this.studelete.Name = "studelete";
             this.studelete.Size = new System.Drawing.Size(75, 23);
             this.studelete.TabIndex = 11;
@@ -154,7 +120,7 @@
             // 
             // stuupdate
             // 
-            this.stuupdate.Location = new System.Drawing.Point(12, 287);
+            this.stuupdate.Location = new System.Drawing.Point(4, 309);
             this.stuupdate.Name = "stuupdate";
             this.stuupdate.Size = new System.Drawing.Size(75, 23);
             this.stuupdate.TabIndex = 12;
@@ -165,7 +131,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 232);
+            this.label6.Location = new System.Drawing.Point(34, 219);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 13);
             this.label6.TabIndex = 13;
@@ -174,7 +140,7 @@
             // courseid
             // 
             this.courseid.FormattingEnabled = true;
-            this.courseid.Location = new System.Drawing.Point(143, 232);
+            this.courseid.Location = new System.Drawing.Point(143, 211);
             this.courseid.Name = "courseid";
             this.courseid.Size = new System.Drawing.Size(121, 21);
             this.courseid.TabIndex = 14;
@@ -190,11 +156,47 @@
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "UserName";
+            // 
+            // username
+            // 
+            this.username.Location = new System.Drawing.Point(143, 159);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(100, 20);
+            this.username.TabIndex = 18;
+            // 
+            // password
+            // 
+            this.password.Location = new System.Drawing.Point(143, 185);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(100, 20);
+            this.password.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 191);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Password";
+            // 
             // StudentFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.username);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.back);
             this.Controls.Add(this.courseid);
             this.Controls.Add(this.label6);
@@ -202,13 +204,9 @@
             this.Controls.Add(this.studelete);
             this.Controls.Add(this.stuadd);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.stupassword);
-            this.Controls.Add(this.stuusername);
             this.Controls.Add(this.stuadderss);
             this.Controls.Add(this.stuname);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "StudentFrom";
@@ -224,13 +222,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox stuname;
         private System.Windows.Forms.TextBox stuadderss;
-        private System.Windows.Forms.TextBox stuusername;
-        private System.Windows.Forms.TextBox stupassword;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button stuadd;
         private System.Windows.Forms.Button studelete;
@@ -238,5 +232,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox courseid;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Label label4;
     }
 }
