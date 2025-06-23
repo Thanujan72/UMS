@@ -53,13 +53,12 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                             StudentID = reader.GetInt32(0),
                             Name = reader.GetString(1),
                             Adderss = reader.GetString(2),
-                            Username = reader .GetString(3),
-                            Password = reader .GetString(4),
+                            Username = reader.GetString(3),
+                            Password = reader.GetString(4),
                             CourseID = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5),
                             CourseName = reader.IsDBNull(6) ? null : reader.GetString(6)
-
                         };
-                        students.Add(student);
+                        students.Add(student); ;
                     }
                 }
 
