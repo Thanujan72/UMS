@@ -14,12 +14,23 @@ namespace UNICOMTIC_MANAGEMENT.Controller
         // Add Course
         public void AddCourse(Course course)
         {
-            using (var conn = DbConfig.GetConnection())
-            {                
-                var command = new SQLiteCommand("INSERT INTO Courses (CourseName) VALUES (@CourseName)", conn);
-                command.Parameters.AddWithValue("@CourseName", course.CourseName);                
+            try
+            {
+                using (var conn = DbConfig.GetConnection())
+                {
+                    var command = new SQLiteCommand("INSERT INTO Courses (CourseName) VALUES (@CourseName)", conn);
+                    command.Parameters.AddWithValue("@CourseName", course.CourseName);
 
-                command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in AddCourse: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in AddCourse: " + ex.Message);
             }
         }
 
@@ -27,20 +38,30 @@ namespace UNICOMTIC_MANAGEMENT.Controller
         public List<Course> GetAllCourses()
         {
             var courses = new List<Course>();
-
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                var cmd = new SQLiteCommand("SELECT * FROM Courses", conn);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (var conn = DbConfig.GetConnection())
                 {
-                    Course course = new Course();
-                    course.CourseID = reader.GetInt32(0);
-                    course.CourseName = reader.GetString(1);
-                    courses.Add(course);
-                    
-                   
+                    var cmd = new SQLiteCommand("SELECT * FROM Courses", conn);
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Course course = new Course();
+                        course.CourseID = reader.GetInt32(0);
+                        course.CourseName = reader.GetString(1);
+                        courses.Add(course);
+
+
+                    }
                 }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in GetAllCourses: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in GetAllCourses: " + ex.Message);
             }
 
             return courses;
@@ -50,28 +71,50 @@ namespace UNICOMTIC_MANAGEMENT.Controller
         // Update Course
         public void UpdateCourse(Course course)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                
-                var command = new SQLiteCommand("UPDATE Courses SET CourseName = @CourseName WHERE CourseID = @CourseID", conn);
-                command.Parameters.AddWithValue("@CourseName", course.CourseName);
-                command.Parameters.AddWithValue("@CourseID", course.CourseID);
-                
+                using (var conn = DbConfig.GetConnection())
+                {
 
-                command.ExecuteNonQuery();
+                    var command = new SQLiteCommand("UPDATE Courses SET CourseName = @CourseName WHERE CourseID = @CourseID", conn);
+                    command.Parameters.AddWithValue("@CourseName", course.CourseName);
+                    command.Parameters.AddWithValue("@CourseID", course.CourseID);
+
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in UpdateCourse: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in UpdateCourse: " + ex.Message);
             }
         }
 
         // Delete Course
         public void DeleteCourse(int CourseID)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                
-                var command = new SQLiteCommand("DELETE FROM Courses WHERE CourseID = @CourseID", conn);
-                command.Parameters.AddWithValue("@CourseID",CourseID);
+                using (var conn = DbConfig.GetConnection())
+                {
 
-                command.ExecuteNonQuery() ;
+                    var command = new SQLiteCommand("DELETE FROM Courses WHERE CourseID = @CourseID", conn);
+                    command.Parameters.AddWithValue("@CourseID", CourseID);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in DeleteCourse: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in DeleteCourse: " + ex.Message);
             }
         }
     }

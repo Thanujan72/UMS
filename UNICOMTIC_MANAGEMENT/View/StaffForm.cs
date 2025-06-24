@@ -50,7 +50,7 @@ namespace UNICOMTIC_MANAGEMENT.View
            Staff staff = new Staff();
             staff.Name = staname.Text;
             staff.Address = staaddress.Text;
-            staff.UserName= stausername.Text;   
+            staff.Username = stausername.Text;   
             staff.Password = stapassword.Text;
 
 
@@ -88,10 +88,10 @@ namespace UNICOMTIC_MANAGEMENT.View
                 int SubjectID = Convert.ToInt32(stagridview.SelectedRows[0].Cells["Id"].Value);
                 Staff staff = new Staff()
                 {
-                    Id = SubjectID,
+                    StaffID = SubjectID,
                     Name = staname.Text,
                     Address = staaddress.Text,
-                    UserName = stausername.Text,
+                    Username = stausername.Text,
                     Password = stapassword.Text,
 
                 };
@@ -117,10 +117,10 @@ namespace UNICOMTIC_MANAGEMENT.View
                 int SubjectID = Convert.ToInt32(stagridview.SelectedRows[0].Cells["Id"].Value);
                 Staff staff = new Staff()
                 {
-                    Id = SubjectID,
+                    StaffID = SubjectID,
                     Name = staname.Text,
                     Address = staaddress.Text,
-                    UserName = stausername.Text,
+                    Username = stausername.Text,
                     Password = stapassword.Text,
 
                 };

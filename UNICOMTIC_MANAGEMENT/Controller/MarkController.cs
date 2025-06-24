@@ -14,121 +14,196 @@ namespace UNICOMTIC_MANAGEMENT.Controller
     {
         public void AddMark(Mark mark)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-               
-                var command = new SQLiteCommand("INSERT INTO Marks (StudentID, ExamID, Score) VALUES (@StudentID, @ExamID, @Score)", conn);
-                command.Parameters.AddWithValue("@StudentID", mark.StudentId);
-                command.Parameters.AddWithValue("@ExamID", mark.ExamID);
-                command.Parameters.AddWithValue("@Score", mark.Score);
 
-                 command.ExecuteNonQuery();
+                using (var conn = DbConfig.GetConnection())
+                {
+
+                    var command = new SQLiteCommand("INSERT INTO Marks (StudentID, ExamID, Score) VALUES (@StudentID, @ExamID, @Score)", conn);
+                    command.Parameters.AddWithValue("@StudentID", mark.StudentId);
+                    command.Parameters.AddWithValue("@ExamID", mark.ExamID);
+                    command.Parameters.AddWithValue("@Score", mark.Score);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in AddMark: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in AddMark: " + ex.Message);
             }
         }
 
         public  List<Mark> GetMarkList()
         {
             var marks = new List<Mark>();
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                var command = new SQLiteCommand(@"SELECT m.MarkID,m.StudentID, m.ExamID, m.Score,s.Name,e.ExamName
+                using (var conn = DbConfig.GetConnection())
+                {
+                    var command = new SQLiteCommand(@"SELECT m.MarkID,m.StudentID, m.ExamID, m.Score,s.Name,e.ExamName
                                                     FROM Marks m
                                                      LEFT JOIN Students S ON S.StudentID = m.StudentID
                                                       LEFT JOIN Exams e  ON e.ExamID = m.ExamID", conn);
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
+                    using (var reader = command.ExecuteReader())
                     {
-                        var mark = new Mark
+                        while (reader.Read())
                         {
-                            MarkID = reader.GetInt32(0),
-                            StudentId = reader.GetInt32(1),
-                            ExamID = reader.GetInt32(2),
-                            Score = reader.GetInt32(3),
-                            StudentName = reader.GetString(4),
-                            ExamName = reader.GetString(5)
-                        };marks.Add(mark);
+                            var mark = new Mark
+                            {
+                                MarkID = reader.GetInt32(0),
+                                StudentId = reader.GetInt32(1),
+                                ExamID = reader.GetInt32(2),
+                                Score = reader.GetInt32(3),
+                                StudentName = reader.GetString(4),
+                                ExamName = reader.GetString(5)
+                            }; marks.Add(mark);
+                        }
                     }
-                }return marks;
-                        
+                    
 
 
+
+                }
             }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in GetMarkList: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in GetMarkList: " + ex.Message);
+            }
+            return marks;
         }
 
         public List <Student> GetStudentList()
         {
             var students = new List<Student>();
-            using ( var conn = DbConfig.GetConnection())
+            try
             {
-                var command = new SQLiteCommand("SELECT StudentID,Name FROM Students",conn);
-                var reader = command.ExecuteReader();
+                using (var conn = DbConfig.GetConnection())
                 {
-                    while(reader.Read())
+                    var command = new SQLiteCommand("SELECT StudentID,Name FROM Students", conn);
+                    var reader = command.ExecuteReader();
                     {
-                        var student = new Student
+                        while (reader.Read())
                         {
-                            StudentID = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                        };
-                        students.Add(student);
+                            var student = new Student
+                            {
+                                StudentID = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                            };
+                            students.Add(student);
+                        }
                     }
-                }return students;
+                    
+                }
             }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in GetStudentList: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in GetStudentList: " + ex.Message);
+            }
+            return students;    
         }
 
         public List<Exam> GetExamList()
         {
             var examList = new List<Exam>();
-            using( var conn = DbConfig.GetConnection())
+            try
             {
-                var command = new SQLiteCommand("SELECT ExamID,ExamName FROM Exams ", conn);
-                var reader = command.ExecuteReader();
+                using (var conn = DbConfig.GetConnection())
                 {
-                    while (reader.Read())
+                    var command = new SQLiteCommand("SELECT ExamID,ExamName FROM Exams ", conn);
+                    var reader = command.ExecuteReader();
                     {
-                        Exam exam = new Exam
+                        while (reader.Read())
                         {
-                            ExamId = reader.GetInt32(0),
-                            ExamName = reader.GetString(1),
-                        };
-                        examList.Add(exam);
+                            Exam exam = new Exam
+                            {
+                                ExamId = reader.GetInt32(0),
+                                ExamName = reader.GetString(1),
+                            };
+                            examList.Add(exam);
+                        }
+
                     }
-                   
                 }
-            } return examList;
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in GetExamList: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in GetExamList: " + ex.Message);
+            }
+            return examList;
         }
 
         // Update Mark
         public void UpdateMark(Mark mark)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
 
+                using (var conn = DbConfig.GetConnection())
+                {
 
-                var command = new SQLiteCommand("UPDATE Marks SET StudentID = @StudentID, ExamID = @ExamID, Score = @Score WHERE MarkID = @MarkID", conn);
+
+                    var command = new SQLiteCommand("UPDATE Marks SET StudentID = @StudentID, ExamID = @ExamID, Score = @Score WHERE MarkID = @MarkID", conn);
 
 
-                command.Parameters.AddWithValue("@StudentID", mark.StudentId);
-                command.Parameters.AddWithValue("@ExamID", mark.ExamID);
-                command.Parameters.AddWithValue("@Score", mark.Score);
-                command.Parameters.AddWithValue("@MarkID", mark.MarkID);
+                    command.Parameters.AddWithValue("@StudentID", mark.StudentId);
+                    command.Parameters.AddWithValue("@ExamID", mark.ExamID);
+                    command.Parameters.AddWithValue("@Score", mark.Score);
+                    command.Parameters.AddWithValue("@MarkID", mark.MarkID);
 
-                command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
+
+                }
             }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in UpdateMark: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in UpdateMark: " + ex.Message);
+            }
+            
         }
 
 
         // Delete Mark
         public void DeleteMark(int MarekID)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                var command = new SQLiteCommand("DELETE FROM Marks WHERE MarkID = @MarkID", conn);
-                command.Parameters.AddWithValue("@MarkID", MarekID);
-               
+                using (var conn = DbConfig.GetConnection())
+                {
+                    var command = new SQLiteCommand("DELETE FROM Marks WHERE MarkID = @MarkID", conn);
+                    command.Parameters.AddWithValue("@MarkID", MarekID);
 
-                command.ExecuteNonQuery() ;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in UpdateExam: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in UpdateExam: " + ex.Message);
             }
         }
      }

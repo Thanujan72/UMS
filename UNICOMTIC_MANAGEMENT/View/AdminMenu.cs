@@ -103,5 +103,21 @@ namespace UNICOMTIC_MANAGEMENT.View
             MainFrom mainFrom = new MainFrom();
             mainFrom.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (this.menupanal.Controls.Count > 0)
+            {
+                this.menupanal.Controls.RemoveAt(0);
+            }
+            menupanal.Controls.Clear();
+            SubjectForm subjectForm = new SubjectForm();
+            subjectForm.TopLevel = false;
+
+            subjectForm.Dock = DockStyle.Fill;
+            subjectForm.FormBorderStyle = FormBorderStyle.None;
+            menupanal.Controls.Add(subjectForm);
+            subjectForm.Show();
+        }
     }
 }

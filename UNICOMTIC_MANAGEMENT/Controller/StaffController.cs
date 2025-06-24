@@ -18,7 +18,7 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                 var cmd =new SQLiteCommand("INSERT INTO Staff (Name,Address,Username,Password) VALUES (@Name,@Address,@UserName,@Password)", conn);
                 cmd.Parameters.AddWithValue("@Name", staff.Name);
                 cmd.Parameters.AddWithValue("@Address", staff.Address);
-                cmd.Parameters.AddWithValue("@UserName",staff.UserName);
+                cmd.Parameters.AddWithValue("@UserName",staff.Username);
                 cmd.Parameters.AddWithValue("@Password",staff.Password);
                 cmd.ExecuteNonQuery();
             }
@@ -38,10 +38,10 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                 while (Reader.Read())
                 {
                     Staff staff = new Staff();
-                    staff.Id = Reader.GetInt32(0);
+                    staff.StaffID = Reader.GetInt32(0);
                     staff.Name = Reader.GetString(1);
                     staff.Address = Reader.GetString(2);
-                    staff.UserName = Reader.GetString(3);
+                    staff.Username = Reader.GetString(3);
                     staff.Password = Reader.GetString(4);
                     Staffs.Add(staff);
                 }
@@ -56,8 +56,8 @@ namespace UNICOMTIC_MANAGEMENT.Controller
                 var cmd = new SQLiteCommand("UPDATE Staff SET Name = @Name , Address = @Address, Username = @UserName WHERE StaffID = @StaffID",conn);
                 cmd.Parameters.AddWithValue("@Name",staff.Name);
                 cmd.Parameters.AddWithValue("@Address",staff.Address);
-                cmd.Parameters.AddWithValue("@UserName",staff.UserName);
-                cmd.Parameters.AddWithValue("@StaffID",staff.Id);
+                cmd.Parameters.AddWithValue("@UserName",staff.Username);
+                cmd.Parameters.AddWithValue("@StaffID",staff.StaffID);
                 cmd.ExecuteNonQuery();  
 
             }

@@ -37,9 +37,10 @@ namespace UNICOMTIC_MANAGEMENT.Controller
             using (var conn = DbConfig.GetConnection())
             {
                 var cmd = new SQLiteCommand(@"
-                            SELECT s.StudentID, s.Name, s.Address, s.CourseID,c.CourseName
-                            FROM Students s
-                            LEFT JOIN Courses c ON s.CourseID = c.CourseID", conn);
+                           SELECT s.StudentID, s.Name, s.Address, s.Username, s.Password, s.CourseID, c.CourseName
+                                FROM Students s
+                                LEFT JOIN Courses c ON s.CourseID = c.CourseID
+                                ", conn);
 
 
 

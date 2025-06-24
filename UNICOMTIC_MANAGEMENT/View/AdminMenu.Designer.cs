@@ -36,11 +36,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menupanal = new System.Windows.Forms.Panel();
+            this.btnsubject = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnsubject);
             this.panel1.Controls.Add(this.stuupdate);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button3);
@@ -54,7 +56,7 @@
             // 
             // stuupdate
             // 
-            this.stuupdate.Location = new System.Drawing.Point(32, 263);
+            this.stuupdate.Location = new System.Drawing.Point(3, 424);
             this.stuupdate.Name = "stuupdate";
             this.stuupdate.Size = new System.Drawing.Size(75, 23);
             this.stuupdate.TabIndex = 13;
@@ -119,6 +121,16 @@
             this.menupanal.TabIndex = 2;
             this.menupanal.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // btnsubject
+            // 
+            this.btnsubject.Location = new System.Drawing.Point(32, 250);
+            this.btnsubject.Name = "btnsubject";
+            this.btnsubject.Size = new System.Drawing.Size(75, 23);
+            this.btnsubject.TabIndex = 14;
+            this.btnsubject.Text = "SUBJECT";
+            this.btnsubject.UseVisualStyleBackColor = true;
+            this.btnsubject.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Panel menupanal;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button stuupdate;
+        private System.Windows.Forms.Button btnsubject;
     }
 }

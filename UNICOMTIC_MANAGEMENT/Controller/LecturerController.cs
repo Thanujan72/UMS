@@ -11,79 +11,123 @@ namespace UNICOMTIC_MANAGEMENT.Controller
         // Add Lecturer
         public void AddLecturer(Lecturer lecturer)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                using (var command = new SQLiteCommand("INSERT INTO Lecturers (Name,UserName,Password) VALUES (@Name,@UserName,@Password)", conn))
+                using (var conn = DbConfig.GetConnection())
                 {
-                    command.Parameters.AddWithValue("@Name", lecturer.Name);
-                    command.Parameters.AddWithValue("@UserName", lecturer.UserName);
-                    command.Parameters.AddWithValue("@Password", lecturer.Password);
+                    using (var command = new SQLiteCommand("INSERT INTO Lecturers (Name,UserName,Password) VALUES (@Name,@UserName,@Password)", conn))
+                    {
+                        command.Parameters.AddWithValue("@Name", lecturer.Name);
+                        command.Parameters.AddWithValue("@UserName", lecturer.UserName);
+                        command.Parameters.AddWithValue("@Password", lecturer.Password);
 
-                    command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in AddLecturer: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in AddLecturer: " + ex.Message);
             }
         }
         //View All Lecturer
         public List<Lecturer> ViewAllLecturer()
         {
             var lecturers = new List<Lecturer>();
-
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-                    using (var cmd = new SQLiteCommand("SELECT * FROM Lecturers", conn))               
+                using (var conn = DbConfig.GetConnection())
+                {
+                    using (var cmd = new SQLiteCommand("SELECT * FROM Lecturers", conn))
                     using (var reader = cmd.ExecuteReader())
                     {
-                    while (reader.Read())
-                    {
-                        Lecturer lecture = new Lecturer();
+                        while (reader.Read())
+                        {
+                            Lecturer lecture = new Lecturer();
 
-                        lecture.LecturerID = reader.GetInt32(0);
-                        lecture.Name = reader.GetString(1);
-                        lecture.UserName = reader.GetString(2);
-                        lecture.Password = reader.GetString(3);
+                            lecture.LecturerID = reader.GetInt32(0);
+                            lecture.Name = reader.GetString(1);
+                            lecture.UserName = reader.GetString(2);
+                            lecture.Password = reader.GetString(3);
 
-                        lecturers.Add(lecture);
+                            lecturers.Add(lecture);
+                        }
+
                     }
-                        
-                    }
-                    return lecturers;
-                
+                    
+
+                }
             }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in ViewAllLecturer: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in ViewAllLecturer: " + ex.Message);
+            }
+            return lecturers;
 
-           
+
         }
 
 
         // Update Lecturer
         public void UpdateLecturer(Lecturer lecturer)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-
-                using (var command = new SQLiteCommand("UPDATE Lecturers SET Name = @Name, UserName = @UserName, Password = @Password WHERE LecturerID = @LecturerID", conn))
+                using (var conn = DbConfig.GetConnection())
                 {
-                    command.Parameters.AddWithValue("@LecturerID",lecturer.LecturerID);
-                    command.Parameters.AddWithValue("@Name", lecturer.Name);
-                    command.Parameters.AddWithValue("@UserName", lecturer.UserName);
-                    command.Parameters.AddWithValue("@Password", lecturer.Password);
 
-                    command.ExecuteNonQuery();
+                    using (var command = new SQLiteCommand("UPDATE Lecturers SET Name = @Name, UserName = @UserName, Password = @Password WHERE LecturerID = @LecturerID", conn))
+                    {
+                        command.Parameters.AddWithValue("@LecturerID", lecturer.LecturerID);
+                        command.Parameters.AddWithValue("@Name", lecturer.Name);
+                        command.Parameters.AddWithValue("@UserName", lecturer.UserName);
+                        command.Parameters.AddWithValue("@Password", lecturer.Password);
+
+                        command.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in UpdateLecturer: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in UpdateLecturer: " + ex.Message);
             }
         }
 
         // Delete Lecturer
         public void DeleteLecturer(int lecturerId)
         {
-            using (var conn = DbConfig.GetConnection())
+            try
             {
-
-                using (var command = new SQLiteCommand("DELETE FROM Lecturers WHERE LecturerID = @Id", conn))
+                using (var conn = DbConfig.GetConnection())
                 {
-                    command.Parameters.AddWithValue("@Id", lecturerId);
 
-                    command.ExecuteNonQuery();
+                    using (var command = new SQLiteCommand("DELETE FROM Lecturers WHERE LecturerID = @Id", conn))
+                    {
+                        command.Parameters.AddWithValue("@Id", lecturerId);
+
+                        command.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("SQLite error in DeleteLecturer: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error in DeleteLecturer: " + ex.Message);
             }
         }
     }

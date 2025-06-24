@@ -23,69 +23,90 @@ namespace UNICOMTIC_MANAGEMENT.View
             LoadExam();
         }
         public void LoadExam()
+
         {
-            ExamGridView.DataSource = null;
-            ExamGridView.DataSource = contoller.GetExamList();
-            if (ExamGridView.Columns.Contains("SubjectID"))
+            try
             {
-                ExamGridView.Columns["SubjectID"].Visible = false;
-            }
-            if (ExamGridView.Columns.Contains("SubjectName"))
-            {
-                ExamGridView.Columns["SubjectName"].Visible = false;
+                ExamGridView.DataSource = null;
+                ExamGridView.DataSource = contoller.GetExamList();
+                if (ExamGridView.Columns.Contains("SubjectID"))
+                {
+                    ExamGridView.Columns["SubjectID"].Visible = false;
+                }
+                if (ExamGridView.Columns.Contains("SubjectName"))
+                {
+                    ExamGridView.Columns["SubjectName"].Visible = false;
+
+                }
+                if ((ExamGridView.Columns.Contains("RoomID")))
+                {
+                    ExamGridView.Columns["RoomID"].Visible = false;
+                }
+
+
+                ExamGridView.ClearSelection();
 
             }
-            if ((ExamGridView.Columns.Contains("RoomID")))
+            catch (Exception ex)
             {
-                ExamGridView.Columns["RoomID"].Visible = false;
+                MessageBox.Show("Error loading exams: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
-            ExamGridView.ClearSelection();
-
-
 
         }
 
 
         private void examadd_Click(object sender, EventArgs e)
         {
-            int SubjectID = (int)subjectname.SelectedValue;
-            int roomID = (int)room.SelectedValue;
-            DateTime examDate = (DateTime)ExamDatetime.Value;
-            Exam exam = new Exam
+            try
             {
-                SubjectID = SubjectID,
-                ExamName = subjectname.Text,
-                ExamDate = examDate,
-                RoomID = roomID,
-                
-            };
-            contoller.AddExam(exam);
-            MessageBox.Show("Exam Added Success");
-            LoadExam();
-            subjectname.SelectedValue = "";
-            room.SelectedValue = "";
-            ExamDatetime.Text = "";
+                int SubjectID = (int)subjectname.SelectedValue;
+                int roomID = (int)room.SelectedValue;
+                DateTime examDate = (DateTime)ExamDatetime.Value;
+                Exam exam = new Exam
+                {
+                    SubjectID = SubjectID,
+                    ExamName = subjectname.Text,
+                    ExamDate = examDate,
+                    RoomID = roomID,
 
+                };
+                contoller.AddExam(exam);
+                MessageBox.Show("Exam Added Success");
+                LoadExam();
+                subjectname.SelectedValue = "";
+                room.SelectedValue = "";
+                ExamDatetime.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to add exam: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ExamForm_Load(object sender, EventArgs e)
         {
-           
-            subjectname.DataSource = contoller.GetSubjectList();
-            subjectname.DisplayMember = "SubjectName";
-            subjectname.ValueMember = "SubjectID";
+            try
+            {
 
-            room.DataSource = contoller.GetRoomList();
-            room.DisplayMember = "RoomType";
-            room.ValueMember = "RoomID";
 
+
+                subjectname.DataSource = contoller.GetSubjectList();
+                subjectname.DisplayMember = "SubjectName";
+                subjectname.ValueMember = "SubjectID";
+
+                room.DataSource = contoller.GetRoomList();
+                room.DisplayMember = "RoomType";
+                room.ValueMember = "RoomID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading subjects or rooms: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ExamGridView_SelectionChanged(object sender, EventArgs e)
         {
-          
+          try
             {
                 if (ExamGridView.SelectedRows.Count > 0)
                 {
@@ -119,6 +140,10 @@ namespace UNICOMTIC_MANAGEMENT.View
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error handling selection change: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -130,16 +155,18 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void examupdate_Click(object sender, EventArgs e)
         {
-            if (ExamGridView.SelectedRows.Count > 0)
+            try
             {
-              
+                if (ExamGridView.SelectedRows.Count > 0)
+                {
+
                     if (ExamGridView.SelectedRows.Count > 0)
                     {
                         int SubjectID = (int)subjectname.SelectedValue;
                         int examId = Convert.ToInt32(ExamGridView.SelectedRows[0].Cells["ExamID"].Value);
-                        string examName = subjectname.Text; 
+                        string examName = subjectname.Text;
                         DateTime examDate = ExamDatetime.Value;
-                        int roomId = (int)room.SelectedValue; 
+                        int roomId = (int)room.SelectedValue;
 
                         Exam exam = new Exam
                         {
@@ -152,47 +179,58 @@ namespace UNICOMTIC_MANAGEMENT.View
 
                         contoller.UpdateExam(exam);
                         LoadExam();
-                    MessageBox.Show("Do you want to update the exam?", "Confirm Update");
+                        MessageBox.Show("Do you want to update the exam?", "Confirm Update");
                         subjectname.SelectedValue = "";
                         room.SelectedValue = "";
                         ExamDatetime.Text = "";
 
+                    }
                 }
 
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to update exam: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void examdelete_Click(object sender, EventArgs e)
         {
-            if (ExamGridView.SelectedRows.Count > 0)
+            try
             {
-
                 if (ExamGridView.SelectedRows.Count > 0)
                 {
-                    int SubjectID = (int)subjectname.SelectedValue;
-                    int examId = Convert.ToInt32(ExamGridView.SelectedRows[0].Cells["ExamID"].Value);
-                    string examName = subjectname.Text;
-                    DateTime examDate = ExamDatetime.Value;
-                    int roomId = (int)room.SelectedValue;
 
-                    Exam exam = new Exam
+                    if (ExamGridView.SelectedRows.Count > 0)
                     {
-                        ExamId = examId,
-                        ExamName = examName,
-                        ExamDate = examDate,
-                        RoomID = roomId,
-                        SubjectID = SubjectID
-                    };
+                        int SubjectID = (int)subjectname.SelectedValue;
+                        int examId = Convert.ToInt32(ExamGridView.SelectedRows[0].Cells["ExamID"].Value);
+                        string examName = subjectname.Text;
+                        DateTime examDate = ExamDatetime.Value;
+                        int roomId = (int)room.SelectedValue;
 
-                    contoller.DeleteExam(examId);
-                    MessageBox.Show("Do you want to Delete the exam?");
-                    LoadExam();
-                    subjectname.SelectedValue = "";
-                    room.SelectedValue = "";
-                    ExamDatetime.Text = "";
+                        Exam exam = new Exam
+                        {
+                            ExamId = examId,
+                            ExamName = examName,
+                            ExamDate = examDate,
+                            RoomID = roomId,
+                            SubjectID = SubjectID
+                        };
 
+                        contoller.DeleteExam(examId);
+                        MessageBox.Show("Do you want to Delete the exam?");
+                        LoadExam();
+                        subjectname.SelectedValue = "";
+                        room.SelectedValue = "";
+                        ExamDatetime.Text = "";
+
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to delete exam: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

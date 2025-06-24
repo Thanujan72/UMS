@@ -19,10 +19,17 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void btnadminlogin_Click(object sender, EventArgs e)
         {
-           
-                if(adminusername.Text == "Admin" && adminpassword.Text == "Admin@123")
+            try
+            {
+                if (string.IsNullOrWhiteSpace(adminusername.Text))
                 {
-                       
+                    MessageBox.Show("Please enter a username.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    adminusername.Focus();
+                    return;
+                }
+                if (adminusername.Text == "Admin" && adminpassword.Text == "Admin@123")
+                {
+
                     MessageBox.Show("SuccessFully Logged in");
 
                     this.Hide();
@@ -32,14 +39,21 @@ namespace UNICOMTIC_MANAGEMENT.View
 
                 else
                 {
-                    MessageBox.Show("Ivalid UserName or Password");
+                    MessageBox.Show("Invalid UserName or Password");
                 }
 
+            }
+            catch (Exception ex)
+            {
+                // Log or handle unexpected errors
+                MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
-            
-            
-            
+
+
+
+
         }
 
         private void adminusername_TextChanged(object sender, EventArgs e)

@@ -27,9 +27,16 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         public void LoadCourses()
         {
-            coursegridview.DataSource = null;
-            coursegridview.DataSource = courseController.GetAllCourses();
-            coursegridview.ClearSelection();
+            try
+            {
+                coursegridview.DataSource = null;
+                coursegridview.DataSource = courseController.GetAllCourses();
+                coursegridview.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load courses: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,62 +51,103 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void coubtnadd_Click(object sender, EventArgs e)
         {
-            Course course = new Course();
-            course.CourseName = couname.Text;   
+            if (string.IsNullOrWhiteSpace(couname.Text))
+            {
+                MessageBox.Show("Please enter a course name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                couname.Focus();
+                return;
+            }
+            try
+            {
+                Course course = new Course();
+                course.CourseName = couname.Text;
 
 
-            courseController.AddCourse(course);
+                courseController.AddCourse(course);
 
-            MessageBox.Show("Success");
+                MessageBox.Show("Success");
 
-            LoadCourses();
+                LoadCourses();
 
-            couname.Text = "";
+                couname.Text = "";
 
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to add course: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+            
+
 
         private void coubtndelete_Click(object sender, EventArgs e)
         {
-            if (coursegridview.SelectedRows.Count > 0)
+            if (coursegridview.SelectedRows.Count == 0)
             {
-                int CourseID = Convert.ToInt32(coursegridview.SelectedRows[0].Cells["CourseID"].Value);
-                Course courses = new Course()
-                {
-                    CourseID = CourseID,
-                    CourseName = couname.Text
-                };
-                courseController.DeleteCourse(CourseID);
-                LoadCourses();
-                couname.Text = "";
+                MessageBox.Show("Please select a course to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            if (coursegridview.SelectedRows.Count > 0)
+
+                try
+                {
+
+
+                    int CourseID = Convert.ToInt32(coursegridview.SelectedRows[0].Cells["CourseID"].Value);
+                    Course courses = new Course()
+                    {
+                        CourseID = CourseID,
+                        CourseName = couname.Text
+                    };
+                    courseController.DeleteCourse(CourseID);
+                    LoadCourses();
+                    couname.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to delete course: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
+
+        
 
         private void coubtnupdate_Click(object sender, EventArgs e)
         {
-            if (coursegridview.SelectedRows.Count > 0)
+            if (coursegridview.SelectedRows.Count == 0)
             {
-               int CourseID = Convert.ToInt32(coursegridview.SelectedRows[0].Cells["CourseID"].Value);
-                Course course = new Course
+                MessageBox.Show("Please select a course to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                if (coursegridview.SelectedRows.Count > 0)
                 {
-                    CourseID = CourseID,
-                    CourseName = couname.Text,
-                };
-                
+                    int CourseID = Convert.ToInt32(coursegridview.SelectedRows[0].Cells["CourseID"].Value);
+                    Course course = new Course
+                    {
+                        CourseID = CourseID,
+                        CourseName = couname.Text,
+                    };
 
-                courseController.UpdateCourse(course);
-                MessageBox.Show("Updated SuccessFully");
-                LoadCourses();
-                couname.Text = "";
+
+                    courseController.UpdateCourse(course);
+                    MessageBox.Show("Updated SuccessFully");
+                    LoadCourses();
+                    couname.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to update course: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void coursegridview_SelectionChanged(object sender, EventArgs e)
         {
-           /* if (coursegridview.SelectedRows.Count > 0)
-            {
-                couname.Text = coursegridview.SelectedRows[0].Cells["CourseName"].Value.ToString();
-            }*/
+           
         }
 
         private void coursegridview_SelectionChanged_1(object sender, EventArgs e)
@@ -113,6 +161,7 @@ namespace UNICOMTIC_MANAGEMENT.View
 
         private void back_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
     }
     

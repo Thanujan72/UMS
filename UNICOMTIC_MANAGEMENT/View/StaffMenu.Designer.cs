@@ -33,12 +33,17 @@
             this.btnexam = new System.Windows.Forms.Button();
             this.btntimbletable = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.staffpanal = new System.Windows.Forms.Panel();
+            this.btnroom = new System.Windows.Forms.Button();
+            this.piback = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.piback)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.piback);
+            this.panel1.Controls.Add(this.btnroom);
             this.panel1.Controls.Add(this.btnmark);
             this.panel1.Controls.Add(this.btnexam);
             this.panel1.Controls.Add(this.btntimbletable);
@@ -86,13 +91,34 @@
             this.panel2.Size = new System.Drawing.Size(641, 75);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
+            // staffpanal
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(159, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(641, 450);
-            this.panel3.TabIndex = 1;
+            this.staffpanal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.staffpanal.Location = new System.Drawing.Point(159, 0);
+            this.staffpanal.Name = "staffpanal";
+            this.staffpanal.Size = new System.Drawing.Size(641, 450);
+            this.staffpanal.TabIndex = 1;
+            // 
+            // btnroom
+            // 
+            this.btnroom.Location = new System.Drawing.Point(33, 250);
+            this.btnroom.Name = "btnroom";
+            this.btnroom.Size = new System.Drawing.Size(75, 23);
+            this.btnroom.TabIndex = 7;
+            this.btnroom.Text = "Room";
+            this.btnroom.UseVisualStyleBackColor = true;
+            this.btnroom.Click += new System.EventHandler(this.btnroom_Click);
+            // 
+            // piback
+            // 
+            this.piback.Image = global::UNICOMTIC_MANAGEMENT.Properties.Resources.R;
+            this.piback.Location = new System.Drawing.Point(3, 3);
+            this.piback.Name = "piback";
+            this.piback.Size = new System.Drawing.Size(49, 37);
+            this.piback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.piback.TabIndex = 8;
+            this.piback.TabStop = false;
+            this.piback.Click += new System.EventHandler(this.piback_Click);
             // 
             // StaffMenu
             // 
@@ -100,11 +126,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.staffpanal);
             this.Controls.Add(this.panel1);
             this.Name = "StaffMenu";
             this.Text = "StaffMenu";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.piback)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,9 +140,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel staffpanal;
         private System.Windows.Forms.Button btntimbletable;
         private System.Windows.Forms.Button btnexam;
         private System.Windows.Forms.Button btnmark;
+        private System.Windows.Forms.Button btnroom;
+        private System.Windows.Forms.PictureBox piback;
     }
 }
